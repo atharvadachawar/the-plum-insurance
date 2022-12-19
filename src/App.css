@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+*{
+  background-color: #dcdcdc;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* form.js  */
+.body{
+  flex-direction:"column"
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main_container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+ 
+}
+
+/* progress bar   */
+.step{
+ 
+  width:20px;
+  height:20px;
+  font-size: 20px;
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+step.completed{
+  background-color: brown;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.leftSide_container{
+  width:10%;
+  height:10%;
+  margin-bottom:5%;
 }
+.return{
+  margin-top: 30px;
+  margin-left:30%;  
+  height:30px;
+  width:30px;
+  border-radius:20px;
+ align-content: center;
+ }
+
+
+.mid_continer{
+  margin-left: 5px;
+  width:50%;
+  height:70%;
+  margin-bottom:5%;
+  border-color: blue;
+  border-width: 20px;
+}
+
+
+.rightSide_container{
+  width: 25%;
+  margin-left:3em;
+  flex-direction: column;
+}
+
+.header{
+  background-color: white;
+  height:2em;
+  padding-top: 1em;
+  text-align: center;
+ font-size: large;
+ font-weight: bold;
+ margin-bottom: 3px;
+ border-top-left-radius: 10px;
+ border-top-right-radius: 10px;
+
+}
+
+.section{
+  background-color: white;
+  width:100%;
+  height:auto;
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+
+}
+
+.section > span{
+  background-color: white;
+  flex-direction: column;
+  width:100%;
+  padding:5px;
+}  
+
+
+  footer{
+    position:fixed;
+    bottom: 0;
+     background-color: white;
+    height:4em;
+    margin-top: 40%;
+    display: flex;
+    justify-content: right;
+    padding-right: 20px;
+    position:sticky;
+  }
+
+  .button{
+    background-color: brown;
+    color:white;
+    text-align: center;
+    width:200px;
+    height:2.5em;
+    border-radius: 5px;  
+    margin-top: 1.25em;
+  }
+
+
+
+
+
+
+
+
