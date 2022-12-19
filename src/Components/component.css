@@ -21,10 +21,26 @@
     margin-left: 1em;
     padding-top: 10px;
 
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.plan_conatiner .Select{
-    background-color:red;
+.select{
+   padding:1em 1em 1em 1em;
+   margin-left: 1em;
+   width:70%;
+   color:black;
+   background-color: white;
+   border:5px;
+   border-color: black;
+   border-width: 5px;
+}
+.select >option{
+    background-color: white;
+    height:10em;
+    padding:1em 1em 1em 1em; 
+
 }
 
 

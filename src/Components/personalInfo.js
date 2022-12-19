@@ -1,8 +1,7 @@
 import React ,{useState} from 'react';
 import Collapsible from './Collapsible';
 import './component.css';
-import Select from "@mui/material/Select";
-import  MenuItem from "@mui/material/MenuItem";
+
 
 
 export default function PersonalInfo( {userData , setUserData}) {
@@ -20,8 +19,8 @@ setPlan(e.target.value);
     
     <div className='info_container'>
     <h2>Choose your plan</h2>
-    <span>Hello Shiva! <br/>
-    increase yours and your family's health insurance cover <b>20 lakhs</b> with Super top-up!</span>
+    Hello Shiva! <br/>
+    <span>increase yours and your family's health insurance cover <b>20 lakhs</b> with Super top-up!</span>
     
     <div >
     <Collapsible label="Plan details">
@@ -30,26 +29,24 @@ setPlan(e.target.value);
    
     <div style={{paddingBottom:"5px"}}>Your plan type</div>
     
-   <Select  className='select'
-   style={{backgroundColor:"white"}}
-   displayEmpty
+   <select  className='select'
    value={plan}
    onChange={updatePlan} 
    >
-    <MenuItem value="">Select your plan</MenuItem>
-    <MenuItem  value={600}>
-    <span>One (Individual)</span>  
-    Self </MenuItem>
-    <MenuItem value={0}> 
-     <span>Pro (Individual)</span>
-    Parents</MenuItem>
-    <MenuItem  value={600}>
-    <span>(Individual+Individual)</span> Plus 
-     Self+Parents</MenuItem>
-    <MenuItem  value={1800}>
-    <span>Max (Floater)</span> 
-    Self+Spouse+Kids</MenuItem>
-  </Select>
+    <option value="">Select your plan</option>
+    <option  value={600}>
+    One (Individual)  
+    Self </option>
+    <option value={0}> 
+     Pro (Individual)
+    Parents</option>
+    <option  value={600}>
+    (Individual+Individual) Plus 
+     Self+Parents</option>
+    <option  value={1800}>
+    Max (Floater) 
+    Self+Spouse+Kids</option>
+  </select>
     </div>
    
     </Collapsible>
