@@ -1,7 +1,7 @@
 import React from 'react'
 import "./component.css";
 
-export default function reviewPage( {userData,plan}) {
+export default function reviewPage( {userData,plan, count}) {
   return (
     <div>
     <h1>Review and confirm payment</h1>
@@ -24,6 +24,9 @@ export default function reviewPage( {userData,plan}) {
    </span>
       
     </div>
+    {count===0 ?<h5 style={{color:"red"}}>Check the details carefully before submittion</h5>:null}
     </div>
   )
 }
+
+// /* <h5>Check the details carefully before submitting</h5> */

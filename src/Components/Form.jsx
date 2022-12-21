@@ -4,6 +4,7 @@ import InsuranceAmount from './InsuranceAmount';
 import Declaration from './declaration';
 import ReviewPage from './reviewPage';
 import ProgressiveBar from './ProgressiveBar';
+import Finalpage from './Finalpage';
 
 
 import "../App.css";
@@ -15,7 +16,11 @@ export default function Form() {
 
   const [page, setPage]=useState(0);
   const [index, setIndex]=useState(1);
-  const [plan , setPlan] = useState("0");
+  const [plan , setPlan] = useState("");
+  const [count, setCount]=useState(0);
+
+  
+  
 
   const [userData , setUserData] = useState({
     email:"",
@@ -35,8 +40,11 @@ export default function Form() {
       return <InsuranceAmount />;
     }else if(page===2){
      return <Declaration />;
-    }else{
-      return <ReviewPage userData={userData} plan ={plan} />;
+    }else if(page===3 || count ===0){
+      return <ReviewPage userData={userData} plan ={plan} count={count} />;
+    }
+      else if(count >0){
+      return <Finalpage userData={userData} plan ={plan} />;
     }
   }
 
@@ -49,10 +57,13 @@ export default function Form() {
 
    <div className='leftSide_container'>
     <button className='return'
-    hidden={page===0}
+    hidden={page===0 || count> 0}
     onClick={()=>{
       setPage((currPage)=>currPage-1);
-      setIndex((currIndex)=>currIndex-1)  }}> <span><SlArrowLeft /></span></button>
+      setIndex((currIndex)=>currIndex-1);
+    if(count>0){
+      setCount((currCount)=>currCount-1)
+    }  }}> <span><SlArrowLeft /></span></button>
     </div>
 
     <div className='mid_continer'>{pageDisplay()}</div>
@@ -88,13 +99,15 @@ export default function Form() {
 
    </div>
    
-    <footer>
+    <footer >
     {page !==pageTitles.length?
     <button className='button'
      onClick={()=>{setPage((currPage)=>currPage+1);
       setIndex((currIndex)=>currIndex+1) 
     }}>Next</button>:
-     <button className='button'>Submit</button>
+     <button className='button'   onClick={()=>{
+      setCount((currCount)=>currCount+1)  }}
+      hidden={count>0}>Submit</button>
     }
     </footer>
      </div>
