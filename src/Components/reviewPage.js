@@ -16,11 +16,11 @@ export default function reviewPage( {userData,plan}) {
    </span>
 
    <span style={{flexDirection:"column"}}>
-   <div className='review_details'>{plan} </div>
-   <div className='review_details'>{userData.MobileNumber} </div>
-   <div className='review_details'> {userData.AddressLine01}  </div>
-   <div className='review_details'>{userData.Pincode} </div>
-   <div className='review_details'>{userData.State} </div>
+   <div className='review_details'>{plan ==="" ? "--":plan} </div>
+   <div className='review_details'>{ userData.MobileNumber ==="" ? "--":userData.MobileNumber} </div>
+   <div className='review_details'>{userData.AddressLine01 ==="" ? "--":userData.AddressLine01} </div>
+   <div className='review_details'>{userData.Pincode ===""  ? "--":userData.Pincode} </div>
+   <div className='review_details'>{userData.State ==="" ? "--":userData.State} </div>
    </span>
       
     </div>
