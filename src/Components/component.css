@@ -30,15 +30,14 @@
    padding:1em 1em 1em 1em;
    margin-left: 1em;
    width:70%;
-   color:black;
    background-color: white;
    border:5px;
    border-color: black;
    border-width: 5px;
 }
-.select >option{
+option{
     background-color: white;
-    height:10em;
+    height:40px;
     padding:1em 1em 1em 1em; 
 
 }
@@ -48,7 +47,8 @@
     width:100%;
     height: auto;
     background-color: white;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
      flex-direction: column;
     padding:0.5em 0em 1em 0em;
     }
@@ -84,10 +84,23 @@
 
     }
 
-    .item >div{
+    .item >label{
         background-color: white;
+        margin-right: 5em;
 
     }
+    #btn{
+        background-color: brown;
+        color:white;
+        text-align: center;
+        width:200px;
+        height:2.5em;
+        border-radius: 5px;  
+        margin-top: 1.25em;
+        align-content: center;
+        
+      }
+    
   
 
 
@@ -237,15 +250,17 @@ Slider::-webkit-slider-thumb{
     display:flex;
     justify-content: space-between;
     width:100%;
-    border-top-left-radius: 20px;
+    border-radius: 20px;
+    padding: 1em;
+    background-color: white;
 }
 
-.reviewPage_container > div{
+.reviewPage_container > span{
     background-color: white;
     flex-direction: column;
     width:100%;
     padding:5px;
-}
+  } 
 
 .review_details{
     background-color: white;

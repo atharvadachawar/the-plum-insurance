@@ -1,16 +1,22 @@
-import React ,{useState} from 'react';
+import React  from 'react';
 import Collapsible from './Collapsible';
 import './component.css';
+import {Formik , Form  , ErrorMessage} from "formik";
+import {userScheme , initialValues, renderError} from '../Validation/formValidation';
 
 
 
-export default function PersonalInfo( {userData , setUserData}) {
+export default function PersonalInfo( {userData , setUserData,plan , setPlan}) {
   
-const [plan , setPlan] = useState("0");
+
 
 const updatePlan = (e,val)=>{
 console.log(e.target.value);
 setPlan(e.target.value);
+
+
+
+
 }
 
   return (
@@ -34,16 +40,16 @@ setPlan(e.target.value);
    onChange={updatePlan} 
    >
     <option value="">Select your plan</option>
-    <option  value={600}>
+    <option  value="One">
     One (Individual)  
     Self </option>
-    <option value={0}> 
+    <option value="Pro"> 
      Pro (Individual)
     Parents</option>
-    <option  value={600}>
+    <option  value="Plus">
     (Individual+Individual) Plus 
      Self+Parents</option>
-    <option  value={1800}>
+    <option  value="Max">
     Max (Floater) 
     Self+Spouse+Kids</option>
   </select>
@@ -57,30 +63,40 @@ setPlan(e.target.value);
    <Collapsible label="Basic details (required)">
    <div className='detail_container'>
 
-   <form id="form">
+   <Formik
+   initialValues={initialValues}
+   validationSchema={userScheme}
+
+   >
+
+   <Form id="form">
 
    <div className='item_wrapper1'>
 
    <div className='item'>
-   <div>Personal email address</div>
+   <label htmlFor=" emailaddress">Personal email address</label>
    <input placeholder="Enter" type="email"  name="emailaddress"
    value={userData.email} onChange={(event)=> setUserData({...userData, email:event.target.value})}
    required="true"
    />
+   <ErrorMessage name="emailaddress" render={renderError} />
+
    </div>
 
    <div className='item'>
-   <div>Address line 01</div>
+   <label htmlFor=" address1">Address line 01</label>
    <input placeholder="Enter" type="address"  name="address1"  
     value={userData.AddressLine01} onChange={(event)=> setUserData({...userData, AddressLine01:event.target.value})}
     required />
+    <ErrorMessage name="address1" render={renderError} />
    </div>
 
    <div className='item'>
-   <div>Pincode</div>
+   <label htmlFor=" pincode">Pincode</label>
    <input placeholder="Enter" type="number" name="pincode"
    value={userData.Pincode} onChange={(event)=> setUserData({...userData, Pincode:event.target.value})}
-   required/>
+   required/><ErrorMessage name="pincode" render={renderError} />
+
    </div>
    
    </div>
@@ -88,32 +104,39 @@ setPlan(e.target.value);
    <div className='item_wrapper2'>
 
    <div className='item'>
-   <div>Mobile number</div>
+   <label htmlFor="mobileno">Mobile number</label>
    <input placeholder="Enter" type="Number" name="mobileno"
    value={userData.MobileNumber} onChange={(event)=> setUserData({...userData, MobileNumber:event.target.value})} 
    required />
+   <ErrorMessage name="mobileno" render={renderError} />
    </div>
    
    <div className='item'>
-   <div>Address line 02</div>
+   <label htmlFor="address2">Address line 02</label>
    <input placeholder="Enter" type="text" name="address2"  
    value={userData.AddressLine02} onChange={(event)=> setUserData({...userData, AddressLine02:event.target.value})}/>
+   <ErrorMessage name="address2"  render={renderError} />
    </div>
 
   
    
   
    <div className='item'>
-   <div>State</div>
+   <label htmlFor="state">State</label>
    <input placeholder="Enter" type="text" name="state"
     value={userData.State} onChange={(event)=> setUserData({...userData, State:event.target.value})}
     required/>
+    <ErrorMessage name="state"  render={renderError} />  
    </div>
-
+   <button  type="submit" id='btn'> Submit </button>
    </div>
-  </form>
+  
+   
+  </Form>
+  </Formik>
  
    </div>
+   
    </Collapsible>
   
     </div>

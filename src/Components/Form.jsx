@@ -15,12 +15,13 @@ export default function Form() {
 
   const [page, setPage]=useState(0);
   const [index, setIndex]=useState(1);
+  const [plan , setPlan] = useState("0");
 
   const [userData , setUserData] = useState({
     email:"",
     MobileNumber: "",
-    AddressAddressLine0201: "",
-    AddressAddressLine0202: "",
+    AddressLine01: "",
+    AddressLine02: "",
     Pincode : "",
     State: ""
 
@@ -29,13 +30,13 @@ export default function Form() {
   const pageTitles =["Personal Info","Insurance amout","declaration","review"];
   const pageDisplay =()=>{
     if(page===0){
-      return <PersonalInfo userData={userData} setUserData={setUserData} />;
+      return <PersonalInfo userData={userData} setUserData={setUserData} plan ={plan} setPlan={setPlan} />;
     }else if(page===1){
       return <InsuranceAmount />;
     }else if(page===2){
      return <Declaration />;
     }else{
-      return <ReviewPage userData={userData} />;
+      return <ReviewPage userData={userData} plan ={plan} />;
     }
   }
 
@@ -74,12 +75,12 @@ export default function Form() {
    </span>
 
    <span style={{flexDirection:"column"}}>
-   <div className='review_details'>{userData.email}</div>
-   <div className='review_details'>{userData.MobileNumber} </div>
-   <div className='review_details'> {userData.AddressLine01}  </div>
-   <div className='review_details'> {userData.AddressLine02}  </div>
-   <div className='review_details'>{userData.Pincode} </div>
-   <div className='review_details'>{userData.State} </div>
+   <div className='review_details'>{userData.email ==="" ? "--":userData.email}</div>
+   <div className='review_details'>{ userData.MobileNumber ==="" ? "--":userData.MobileNumber} </div>
+   <div className='review_details'> {userData.AddressLine01 ==="" ? "--":userData.AddressLine01}  </div>
+   <div className='review_details'> {userData.AddressLine02 ==="" ? "--":userData.AddressLine02}  </div>
+   <div className='review_details'>{userData.Pincode ===""  ? "--":userData.Pincode} </div>
+   <div className='review_details'>{userData.State ==="" ? "--":userData.State} </div>
     </span>
 
     </div> 
